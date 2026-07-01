@@ -1,0 +1,20 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Master Alex logo</title>
+  <desc id="desc">A rounded square logo with the letters M and A in a bright gradient.</desc>
+  <defs>
+    <linearGradient id="bg" x1="40" y1="28" x2="220" y2="228" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#72F1C2" />
+      <stop offset="0.55" stop-color="#9ECBFF" />
+      <stop offset="1" stop-color="#FFB86B" />
+    </linearGradient>
+    <linearGradient id="cut" x1="72" y1="56" x2="184" y2="192" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4F8FB" stop-opacity="0.92" />
+      <stop offset="1" stop-color="#F4F8FB" stop-opacity="0.65" />
+    </linearGradient>
+  </defs>
+  <rect x="16" y="16" width="224" height="224" rx="56" fill="#07131B" />
+  <rect x="16" y="16" width="224" height="224" rx="56" fill="url(#bg)" fill-opacity="0.12" />
+  <path d="M58 184L92 72H110L128 125L146 72H164L198 184H178L156 106L132 170H124L100 106L78 184H58Z" fill="url(#cut)" />
+  <path d="M70 88L96 88L128 148L160 88L186 88L142 196H114L70 88Z" fill="url(#bg)" fill-opacity="0.18" />
+  <path d="M70 194H186" stroke="#F4F8FB" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round" />
+</svg>
