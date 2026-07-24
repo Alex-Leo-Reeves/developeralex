@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="description" content="Resume — Ozegbe Mike Isioma. Flutter, Node.js, full-stack developer." />
+    <meta name="theme-color" content="#07131b" />
+    <title>Ozegbe Mike Isioma | Resume</title>
+    <link rel="icon" href="logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        .resume-page {
+            padding: 2rem 0 4rem;
+        }
+        
+        .resume-card {
+            border: 2px solid var(--line);
+            background: var(--panel-strong);
+            backdrop-filter: blur(16px);
+            box-shadow: var(--shadow);
+            border-radius: 32px;
+            padding: 2.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .resume-header {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--line);
+        }
+        
+        .resume-photo-wrap {
+            width: 152px;
+            height: 152px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(114, 241, 194, 0.25), rgba(158, 203, 255, 0.25));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .resume-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #07131b;
+            display: block;
+        }
+        
+        .resume-name-title h1 {
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            margin-bottom: 0.25rem;
+            max-width: none;
+        }
+        
+        .resume-name-title .tagline {
+            color: var(--accent-3);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .resume-contact-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.5rem;
+            margin-top: 0.8rem;
+        }
+        
+        .resume-contact-icons a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 160ms;
+        }
+        
+        .resume-contact-icons a:hover {
+            color: var(--accent);
+        }
+        
+        .contact-icon {
+            width: 1.1rem;
+            height: 1.1rem;
+            flex-shrink: 0;
+            opacity: 0.7;
+        }
+        
+        .resume-section {
+            margin-bottom: 1.8rem;
+        }
+        
+        .resume-section h2 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        
+        .resume-section h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--line);
+        }
+        
+        .resume-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .resume-item {
+            margin-bottom: 1.2rem;
+        }
+        
+        .resume-item h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .resume-item .sub {
+            color: var(--accent-3);
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        
+        .resume-item .date {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+        
+        .resume-item p,
+        .resume-item li {
+            color: var(--muted);
+            line-height: 1.6;
+            font-size: 0.92rem;
+        }
+        
+        .resume-item ul {
+            margin: 0.3rem 0 0;
+            padding-left: 1.1rem;
+        }
+        
+        .resume-item li {
+            margin-bottom: 0.15rem;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.3rem;
+        }
+        
+        .skill-tag {
+            display: inline-flex;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            border: 1px solid rgba(188, 219, 229, 0.12);
+            background: rgba(188, 219, 229, 0.05);
+            color: #d7e5ea;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+        
+        .print-btn-wrap {
+            text-align: right;
+            margin-bottom: 1.5rem;
+        }
+        
+        .print-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 999px;
+            background: rgba(114, 241, 194, 0.11);
+            color: #bff8e5;
+            border: 1px solid rgba(114, 241, 194, 0.2);
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: background 160ms;
+        }
+        
+        .print-btn:hover {
+            background: rgba(114, 241, 194, 0.2);
+        }
+        
+        .print-only {
+            display: none;
+        }
+        
+        @media print {
+            .topbar,
+            .print-btn-wrap,
+            .no-print {
+                display: none !important;
+            }
+            .page-shell {
+                overflow: visible;
+            }
+            .resume-card {
+                border: none;
+                box-shadow: none;
+                background: #fff;
+                color: #111;
+                padding: 0.5in;
+            }
+            .resume-card * {
+                color: #111 !important;
+            }
+            .resume-section h2 {
+                color: #222 !important;
+            }
+            .resume-item .sub {
+                color: #444 !important;
+            }
+            .resume-item p,
+            .resume-item li,
+            .resume-contact-icons a {
+                color: #333 !important;
+            }
+            .skill-tag {
+                border-color: #ccc;
+                background: #f5f5f5;
+                color: #222 !important;
+            }
+            .resume-photo {
+                border-color: #222;
+            }
+            .resume-section h2::after {
+                background: #ccc;
+            }
+            .resume-header {
+                border-bottom-color: #ccc;
+            }
+            .print-only {
+                display: block;
+            }
+            body {
+                background: #fff;
+            }
+        }
+        
+        @media (max-width: 720px) {
+            .resume-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .resume-photo {
+                margin: 0 auto;
+            }
+            .resume-contact-icons {
+                justify-content: center;
+            }
+            .resume-grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .resume-card {
+                padding: 1.5rem;
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <a class="brand" href="index.html">
+                <img class="brand-mark" src="logo.svg" alt="Ozegbe Mike Isioma logo" width="40" height="40" />
+                <span>
+                    <strong>Ozegbe Mike Isioma</strong>
+                    <small>Developer portfolio</small>
+                </span>
+            </a>
+            <nav class="nav-links" aria-label="Primary">
+                <a href="index.html">Home</a>
+                <a href="index.html#works">Works</a>
+                <a href="index.html#channels">Channels</a>
+                <a href="resume.html">Resume</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main class="resume-page">
+            <div class="print-btn-wrap">
+                <button class="print-btn" onclick="window.print()">🖨️ Print / Save PDF</button>
+            </div>
+
+            <div class="resume-card">
+                <!-- Header -->
+                <div class="resume-header">
+                    <div class="resume-photo-wrap">
+                        <img class="resume-photo" src="passport.png" alt="Ozegbe Mike Isioma" />
+                    </div>
+                    <div class="resume-name-title">
+                        <h1>Ozegbe Mike Isioma</h1>
+                        <div class="tagline">Flutter & Node.js Full-Stack Developer</div>
+                        <div class="resume-contact-icons">
+                            <a href="mailto:masteralexleoreevesd1@gmail.com">
+                                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg> masteralexleoreevesd1@gmail.com
+                            </a>
+                            <a href="https://wa.me/2348071229801" target="_blank" rel="noopener">
+                                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l1.4-5.2a9 9 0 111.6 1.6L4 20z"/><path d="M8 11a3 3 0 014 0 3 3 0 014 0"/></svg> +234 807 122 9801
+                            </a>
+                            <a href="https://t.me/developeralexd1" target="_blank" rel="noopener">
+                                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg> @developeralexd1
+                            </a>
+                            <a href="https://developeralexd1.netlify.app" target="_blank" rel="noopener">
+                                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20z"/></svg> developeralexd1.netlify.app
+                            </a>
+                            <a href="https://github.com/Alex-Leo-Reeves" target="_blank" rel="noopener">
+                                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>                                Alex-Leo-Reeves
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary -->
+                <div class="resume-section">
+                    <h2>Professional Summary</h2>
+                    <p style="color: var(--muted); line-height: 1.75; max-width: 70ch;">
+                        Product-focused developer with experience building and shipping cross-platform apps, full-stack web systems, and real-time desktop applications. Proficient in Flutter, Node.js, and modern tooling. Passionate about creating polished, functional products
+                        that people can actually use — from LAN file sharing hubs to entertainment readers and multiplayer game systems.
+                    </p>
+                </div>
+
+                <!-- Projects -->
+                <div class="resume-section">
+                    <h2>Featured Projects</h2>
+                    <div class="resume-item">
+                        <h3>Rocca DCO Filesystem</h3>
+                        <span class="sub">Flutter, Node.js, WebSocket, SQLite</span>
+                        <p>
+                            Peer-to-peer office file sharing system. Node.js server with two Flutter Windows desktop apps. Admin app manages users, files, locks, chat, and subscriptions. User app browses, edits PDFs/Office docs, and shares files via WebSocket real-time sync. Runs
+                            entirely on LAN — no cloud required.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Flutter</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">WebSocket</span>
+                            <span class="skill-tag">SQLite</span>
+                            <span class="skill-tag">GitHub Actions</span>
+                            <span class="skill-tag">Inno Setup</span>
+                        </div>
+                    </div>
+
+                    <div class="resume-item">
+                        <h3>NovelApp</h3>
+                        <span class="sub">Kotlin Multiplatform, Compose, Ktor</span>
+                        <p>
+                            Multiplatform entertainment reader for novels, manga, anime, K-drama, cartoons, and movies. Features saved accounts, personalized updates, and AI narration.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Kotlin Multiplatform</span>
+                            <span class="skill-tag">Jetpack Compose</span>
+                            <span class="skill-tag">Ktor</span>
+                        </div>
+                    </div>
+
+                    <div class="resume-item">
+                        <h3>Wondy Study Toolkit</h3>
+                        <span class="sub">Flutter, AI, Node.js</span>
+                        <p>
+                            Phone-first study app with AI-powered notes, quizzes, group study sessions, diary planning, focus tools, music integration, and Gemini conversational help.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Flutter</span>
+                            <span class="skill-tag">Gemini AI</span>
+                            <span class="skill-tag">Node.js</span>
+                        </div>
+                    </div>
+
+                    <div class="resume-item">
+                        <h3>Whot Project</h3>
+                        <span class="sub">Flutter, Firebase, Agora</span>
+                        <p>
+                            Real-time multiplayer implementation of the Nigerian Whot card game with matchmaking, spectator mode, Firebase authentication, subscription management, and audio support.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Flutter</span>
+                            <span class="skill-tag">Firebase</span>
+                            <span class="skill-tag">Agora</span>
+                            <span class="skill-tag">Game Logic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills & Tools -->
+                <div class="resume-section">
+                    <h2>Skills & Technologies</h2>
+                    <div class="resume-grid-2">
+                        <div class="resume-item">
+                            <h3>Frontend & Mobile</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Flutter</span>
+                                <span class="skill-tag">Dart</span>
+                                <span class="skill-tag">Kotlin</span>
+                                <span class="skill-tag">Jetpack Compose</span>
+                                <span class="skill-tag">HTML/CSS</span>
+                                <span class="skill-tag">Responsive Design</span>
+                            </div>
+                        </div>
+                        <div class="resume-item">
+                            <h3>Backend & APIs</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">Express</span>
+                                <span class="skill-tag">WebSocket</span>
+                                <span class="skill-tag">REST API</span>
+                                <span class="skill-tag">JWT</span>
+                                <span class="skill-tag">SQLite</span>
+                            </div>
+                        </div>
+                        <div class="resume-item">
+                            <h3>DevOps & Tooling</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">GitHub Actions</span>
+                                <span class="skill-tag">Render</span>
+                                <span class="skill-tag">Netlify</span>
+                                <span class="skill-tag">Inno Setup</span>
+                                <span class="skill-tag">Windows Installer</span>
+                            </div>
+                        </div>
+                        <div class="resume-item">
+                            <h3>Platforms</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Windows Desktop</span>
+                                <span class="skill-tag">Android</span>
+                                <span class="skill-tag">Web</span>
+                                <span class="skill-tag">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="resume-section no-print">
+                    <h2>Get in Touch</h2>
+                    <p style="color: var(--muted); line-height: 1.75;">
+                        I'm available for freelance, collaborative projects, and full-time opportunities. Reach out via email, WhatsApp, or Telegram.
+                    </p>
+                    <div class="resume-contact-icons" style="margin-top: 0.5rem;">
+                        <a href="mailto:masteralexleoreevesd1@gmail.com">✉️ masteralexleoreevesd1@gmail.com</a>
+                        <a href="https://wa.me/2348071229801" target="_blank" rel="noopener">📱 +234 807 122 9801</a>
+                        <a href="https://t.me/developeralexd1" target="_blank" rel="noopener">✈️ @developeralexd1</a>
+                        <a href="https://developeralexd1.netlify.app" target="_blank" rel="noopener">🌐 Portfolio</a>
+                    </div>
+                </div>
+
+                <!-- Print footer -->
+                <div class="print-only" style="margin-top: 2rem; border-top: 1px solid #ccc; padding-top: 1rem; font-size: 0.8rem; color: #666;">
+                    <strong>Ozegbe Mike Isioma</strong> &mdash; masteralexleoreevesd1@gmail.com &mdash; +234 807 122 9801<br> Portfolio: <a href="https://developeralexd1.netlify.app">developeralexd1.netlify.app</a> &mdash; GitHub: <a href="https://github.com/Alex-Leo-Reeves">github.com/Alex-Leo-Reeves</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
