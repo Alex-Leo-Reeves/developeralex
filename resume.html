@@ -210,21 +210,97 @@
         }
         
         @media print {
+            @page {
+                size: A4;
+                margin: 0.4in 0.45in;
+            }
+
             .topbar,
             .print-btn-wrap,
-            .no-print {
+            .no-print,
+            .print-only {
                 display: none !important;
             }
+
+            .page-shell::before,
+            .page-shell::after {
+                display: none !important;
+            }
+
             .page-shell {
                 overflow: visible;
             }
+
             .resume-card {
                 border: none;
                 box-shadow: none;
                 background: #fff;
+                backdrop-filter: none;
                 color: #111;
-                padding: 0.5in;
+                padding: 0;
+                max-width: none;
+                border-radius: 0;
             }
+
+            .resume-header {
+                gap: 1.25rem;
+                margin-bottom: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            .resume-photo-wrap {
+                width: 120px;
+                height: 120px;
+            }
+
+            .resume-photo {
+                width: 110px;
+                height: 110px;
+            }
+
+            .resume-section {
+                margin-bottom: 1rem;
+            }
+
+            .resume-section h2 {
+                font-size: 1.2rem;
+                margin-bottom: 0.45rem;
+            }
+
+            .resume-item {
+                margin-bottom: 0.65rem;
+            }
+
+            .resume-item h3 {
+                font-size: 0.98rem;
+                margin-bottom: 0.1rem;
+            }
+
+            .resume-item .sub {
+                font-size: 0.78rem;
+                margin-bottom: 0.15rem;
+            }
+
+            .resume-item p,
+            .resume-item li {
+                font-size: 0.82rem;
+                line-height: 1.35;
+            }
+
+            .skill-tags {
+                gap: 0.25rem;
+                margin-top: 0.2rem;
+            }
+
+            .skill-tag {
+                padding: 0.2rem 0.55rem;
+                font-size: 0.72rem;
+            }
+
+            .resume-grid-2 {
+                gap: 0.5rem 0.8rem;
+            }
+
             .resume-card * {
                 color: #111 !important;
             }
@@ -315,7 +391,7 @@
                     </div>
                     <div class="resume-name-title">
                         <h1>Ozegbe Mike Isioma</h1>
-                        <div class="tagline">Flutter & Node.js Full-Stack Developer</div>
+                        <div class="tagline">Backend & Full-Stack Developer</div>
                         <div class="resume-contact-icons">
                             <a href="mailto:masteralexleoreevesd1@gmail.com">
                                 <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg> masteralexleoreevesd1@gmail.com
@@ -340,8 +416,7 @@
                 <div class="resume-section">
                     <h2>Professional Summary</h2>
                     <p style="color: var(--muted); line-height: 1.75; max-width: 70ch;">
-                        Product-focused developer with experience building and shipping cross-platform apps, full-stack web systems, and real-time desktop applications. Proficient in Flutter, Node.js, and modern tooling. Passionate about creating polished, functional products
-                        that people can actually use — from LAN file sharing hubs to entertainment readers and multiplayer game systems.
+                        Backend-focused full-stack developer with 5 years of backend development experience building and shipping APIs, cross-platform apps, web systems, and real-time desktop applications. Experienced with TypeScript, Node.js, React, Next.js, PostgreSQL, and Redis, alongside Flutter and modern deployment tooling. I build polished products that solve practical problems, from LAN file sharing to creative and entertainment platforms.
                     </p>
                 </div>
 
@@ -377,7 +452,7 @@
                     </div>
 
                     <div class="resume-item">
-                        <h3>Chaperlyloom — <a href="https://chapterlyloom.onrender.com" target="_blank" rel="noopener noreferrer">chapterlyloom.onrender.com</a></h3>
+                        <h3>ChapterlyLoom — <a href="https://chapterlyloom.onrender.com" target="_blank" rel="noopener noreferrer">chapterlyloom.onrender.com</a></h3>
                         <span class="sub">React, TypeScript, Node.js, Express, PostgreSQL, Render</span>
                         <p>
                             AI-assisted novel writing studio for building book-specific story roadmaps, managing source chapters and book settings, generating and editing chapters, and exporting manuscripts for download.
@@ -474,6 +549,9 @@
                                 <span class="skill-tag">Dart</span>
                                 <span class="skill-tag">Kotlin</span>
                                 <span class="skill-tag">Jetpack Compose</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Next.js</span>
+                                <span class="skill-tag">TypeScript</span>
                                 <span class="skill-tag">HTML/CSS</span>
                                 <span class="skill-tag">Responsive Design</span>
                             </div>
@@ -482,10 +560,13 @@
                             <h3>Backend & APIs</h3>
                             <div class="skill-tags">
                                 <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">TypeScript</span>
                                 <span class="skill-tag">Express</span>
                                 <span class="skill-tag">WebSocket</span>
                                 <span class="skill-tag">REST API</span>
                                 <span class="skill-tag">JWT</span>
+                                <span class="skill-tag">PostgreSQL</span>
+                                <span class="skill-tag">Redis</span>
                                 <span class="skill-tag">SQLite</span>
                             </div>
                         </div>
